@@ -61,6 +61,10 @@ if (!function_exists('categorize_double_byte_char')) {
      * for SJIS-win
      * NEC特殊文字, NEC選定IBM拡張文字, IBM拡張文字, 第一水準漢字, 第二水準漢字
      * 全角アルファベット, 全角ひらがな, 全角カタカナ, 全角数字, 全角記号 を大雑把に分類します（未定義領域も範囲特定に含めたりしてるので厳密ではありません。）
+     *
+     * SJISの場合、JISX0208, JISX0201の文字集合に、「NEC特殊文字, NEC選定IBM拡張文字, IBM拡張文字」がない為、
+     * 多分うまく判定できず文字化けします。※そのそもmb_str_splitの配列に分割する時点で文字化けします。
+     *
      * @param string $val
      */
     function categorize_double_byte_char(string $val): void
