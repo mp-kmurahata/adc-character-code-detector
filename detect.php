@@ -200,13 +200,12 @@ if (!function_exists('detect')) {
                 }
             }
 
-            // Unicode上のコードポイントと、UTF-8上の符号を出す ※SJIS-winのようにカテゴライズまではしない
+            // Unicode上のコードポイントと、UTF-8上の符号を出す ※SJIS-winのようにカテゴライズまではしません
             if ($encoding === 'UTF-8') {
                 // Unicode上のコードポイントを取得
                 $code_point = bin2hex(
-                    // https://www.cresco-es.co.jp/special/news/407
-                    // によれば、日本語はUCS-2の中に全て入っているみたいなので、UCS-4ではなくUCS-2にエンコードしています
-                    mb_convert_encoding($char, 'UCS-2', 'UTF-8')
+                    // // 基本多言語面(BMP)の範囲内で一旦十分なのでUCS-2を指定しています
+                    mb_convert_encoding($char, 'UCS-2','UTF-8')
                 );
                 // UTF-8上の符号（文字コード）を取得
                 $char_code = bin2hex($char);
