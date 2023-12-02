@@ -234,7 +234,7 @@ if (!function_exists('detect')) {
                 $code_point = get_code_point($char);
                 // UTF-8上の符号を取得
                 $char_code = bin2hex($char);
-                echo( '「' . $char . '」は、' . (strlen($char_code) / 2) . 'バイト文字です | Unicode(UCS-2)上の符号位置（コードポイント） = ' . $code_point . ' | UTF-8上の符号 = ' . $char_code . PHP_EOL);
+                echo( '「' . $char . '」は、' . (strlen($char_code) / 2) . 'バイト文字です | Unicode上の符号位置（コードポイント） = ' . $code_point . ' | UTF-8上の符号 = ' . $char_code . PHP_EOL);
             }
         }
     }
