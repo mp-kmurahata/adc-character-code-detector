@@ -203,10 +203,21 @@ if (!function_exists('detect')) {
             // Unicode上のコードポイントと、UTF-8上の符号を出す ※SJIS-winのようにカテゴライズまではしません
             if ($encoding === 'UTF-8') {
                 // Unicode上のコードポイントを取得
+                /* 「𩸽」が基本多言語面(BMP)の範囲外だったので、UCS-4に変更
                 $code_point = bin2hex(
                     // // 基本多言語面(BMP)の範囲内で一旦十分なのでUCS-2を指定しています
                     mb_convert_encoding($char, 'UCS-2','UTF-8')
                 );
+                */
+                $code_point = bin2hex(
+                    mb_convert_encoding($char, 'UCS-4', 'UTF-8')
+                );
+                $code_point = hexdec($code_point);
+                // U+は固定文字列
+                // %X指定子で、引数は整数として扱われ、16進数値(大文字)として表現
+                // %04指定子で、左側を0で埋めます
+                $code_point = sprintf("U+%04X", $code_point);
+
                 // UTF-8上の符号を取得
                 $char_code = bin2hex($char);
                 echo( '「' . $char . '」は、' . (strlen($char_code) / 2) . 'バイト文字です | Unicode(UCS-2)上の符号位置（コードポイント） = ' . $code_point . ' | UTF-8上の符号 = ' . $char_code . PHP_EOL);
