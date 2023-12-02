@@ -5,7 +5,7 @@ For metaps Advent Calendar 2023
 このプロジェクトでは、SJIS, SJIS-win(Windows-31J, CP932, MS932), UTF-8の
 テキストファイルから文字列を取り出して、その符号を出力させたり、
 UTF-8の場合、Unicode上のコードポイントやUTF-8上の符号を出力します。
-また、SJIS,SJIS-winの場合、大雑把に分類して結果をターミナルに出力します。
+また、SJIS,SJIS-winの場合、2バイト文字を大雑把に分類して結果をターミナルに出力します。
 
 ## 使い方
 
