@@ -187,13 +187,13 @@ if (!function_exists('detect')) {
                 // 1バイト文字の場合
                 if (is_shift_jis_one_byte_char($char)) {
                     // UTF-8にエンコードしてあげているのは、自環境のターミナルのエンコードがUTF-8の為
-                    echo( '「' . mb_convert_encoding($char, 'UTF-8', $encoding) . '」は、1バイト文字です | 符号（文字コード） = ' . $tmp_hex . PHP_EOL);
+                    echo( '「' . mb_convert_encoding($char, 'UTF-8', $encoding) . '」は、1バイト文字です | 符号 = ' . $tmp_hex . PHP_EOL);
                     continue;
                 }
                 // 2バイト文字の場合
                 if (is_shift_jis_double_byte_char($char)) {
                     // UTF-8にエンコードしてあげているのは、自環境のターミナルのエンコードがUTF-8の為
-                    echo( '「' . mb_convert_encoding($char, 'UTF-8', $encoding) . '」は、2バイト文字です | 符号（文字コード） = ' . $tmp_hex . PHP_EOL);
+                    echo( '「' . mb_convert_encoding($char, 'UTF-8', $encoding) . '」は、2バイト文字です | 符号 = ' . $tmp_hex . PHP_EOL);
                     // 2バイト文字であれば、カテゴライズしてみる。
                     categorize_double_byte_char($char);
                     continue;
@@ -207,9 +207,9 @@ if (!function_exists('detect')) {
                     // // 基本多言語面(BMP)の範囲内で一旦十分なのでUCS-2を指定しています
                     mb_convert_encoding($char, 'UCS-2','UTF-8')
                 );
-                // UTF-8上の符号（文字コード）を取得
+                // UTF-8上の符号を取得
                 $char_code = bin2hex($char);
-                echo( '「' . $char . '」は、' . (strlen($char_code) / 2) . 'バイト文字です | Unicode(UCS-2)上の符号位置（コードポイント） = ' . $code_point . ' | UTF-8上の符号（文字コード） = ' . $char_code . PHP_EOL);
+                echo( '「' . $char . '」は、' . (strlen($char_code) / 2) . 'バイト文字です | Unicode(UCS-2)上の符号位置（コードポイント） = ' . $code_point . ' | UTF-8上の符号 = ' . $char_code . PHP_EOL);
             }
         }
     }

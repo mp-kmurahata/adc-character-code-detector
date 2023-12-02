@@ -3,8 +3,8 @@
 For metaps Advent Calendar 2023
 
 このプロジェクトでは、SJIS, SJIS-win(Windows-31J, CP932, MS932), UTF-8の
-テキストファイルから文字列を取り出して、その符号（文字コード）を出力させたり、
-UTF-8の場合、Unicode上のコードポイントやUTF-8上の符号（文字コード）を出力します。
+テキストファイルから文字列を取り出して、その符号を出力させたり、
+UTF-8の場合、Unicode上のコードポイントやUTF-8上の符号を出力します。
 また、SJIS,SJIS-winの場合、大雑把に分類して結果をターミナルに出力します。
 
 ## 使い方
@@ -32,7 +32,7 @@ php index.php SJIS
 
 ### UTF-8を指定した場合
 detect_targets/utf8.txtに入力されている文字を1つずつチェックして
-Unicode上のコードポイント及び、UTF-8上の符号（文字コード）をターミナルに
+Unicode上のコードポイント及び、UTF-8上の符号をターミナルに
 出力します。
 ```
 php index.php UTF-8
