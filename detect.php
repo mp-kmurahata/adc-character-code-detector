@@ -212,7 +212,9 @@ if (!function_exists('detect')) {
                 $code_point = bin2hex(
                     mb_convert_encoding($char, 'UCS-4', 'UTF-8')
                 );
+                // sprintfの%X指定に対応させるために、16進数文字列を、10進数（integer）に変換
                 $code_point = hexdec($code_point);
+                echo(gettype($code_point).PHP_EOL);
                 // U+は固定文字列
                 // %X指定子で、引数は整数として扱われ、16進数値(大文字)として表現
                 // %04指定子で、左側を0で埋めます
