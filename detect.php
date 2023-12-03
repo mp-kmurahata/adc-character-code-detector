@@ -198,13 +198,16 @@ if (!function_exists('get_code_point')) {
 }
 
 if (!function_exists('detect')) {
+    /**
+     * 符号の出力処理（メイン処理）
+     * @param string $encoding
+     */
     function detect(string $encoding): void
     {
         // ファイルから文字列を全て取り出す
         $text = get_text_from_file($encoding);
         // 1文字ずつ配列化
         $chars = mb_str_split($text, 1, $encoding);
-        // echo(print_r($chars, true).PHP_EOL);
 
         // 1文字ずつ分類していく
         foreach ($chars as $char) {
